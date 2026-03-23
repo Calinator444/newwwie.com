@@ -6,7 +6,7 @@ import { readFileSync, writeFileSync } from "fs";
 import { renderString } from "nunjucks";
 
 import { EventItem } from "../src/js/events/types";
-import { GroupEdge, GroupResponse, MEETUP_GQL_QUERY2 } from "./types";
+import { GroupEdge, GroupResponse, MEETUP_GQL_QUERY } from "./types";
 import { Meetups } from "./meetups.json";
 
 const MEETUP_GQL_URL = "https://api.meetup.com/gql-ext";
@@ -17,10 +17,10 @@ const EVENT_OUTPUT_FILE = path.join(__dirname, "../src/js/events/events-data.ts"
 const EVENT_TEMPLATE_FILE = path.join(__dirname, "./event-data-template.njk");
 
 const buildGraphQLQuery = (groupName: string) => ({
-  query: MEETUP_GQL_QUERY2,
+  query: MEETUP_GQL_QUERY,
   variables: {
     groupName,
-    endDateRange: END_DATE_RANGE,
+    beforeDate: END_DATE_RANGE,
   },
 });
 
