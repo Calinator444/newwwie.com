@@ -10,9 +10,7 @@ import { GroupEdge, GroupResponse, MEETUP_GQL_QUERY } from "./types";
 import { Meetups } from "./meetups.json";
 
 const MEETUP_GQL_URL = "https://api.meetup.com/gql-ext";
-
 const END_DATE_RANGE = DateTime.now().plus({ months: 3 }).toISO();
-console.log("end date range", END_DATE_RANGE);
 const EVENT_OUTPUT_FILE = path.join(__dirname, "../src/js/events/events-data.ts");
 const EVENT_TEMPLATE_FILE = path.join(__dirname, "./event-data-template.njk");
 
@@ -30,7 +28,6 @@ const getGroupEvents = async (groupName: string): Promise<EventItem[]> => {
   const events = (await axios.post(MEETUP_GQL_URL, JSON.stringify(query))).data as GroupResponse;
 
   // Transform the response
-  console.log("egents", events.data);
   const { events: groupEvents, ...group } = events.data.groupByUrlname || {};
 
   console.log(`Finished fetching events for "${groupName}"`);
