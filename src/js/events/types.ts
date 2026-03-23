@@ -14,7 +14,7 @@ export type Event = {
   maxTickets: number;
   title: string;
   venue: Venue | null;
-  displayPhoto: Image
+  displayPhoto: Image;
   rsvps: {
     totalCount: number;
   };

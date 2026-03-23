@@ -57,4 +57,3 @@ query ($groupName: String!, $beforeDate: DateTime) {
         }
     }
 }`;
-

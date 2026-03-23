@@ -164,7 +164,9 @@ export class Meetup extends Component {
         />
       );
     } else if (image.baseUrl && image.id) {
-      contents = <img src={this.renderImageLink(image)} alt={group.name ?? "undefined"} class="eventItem-image_photo" />;
+      contents = (
+        <img src={this.renderImageLink(image)} alt={group.name ?? "undefined"} class="eventItem-image_photo" />
+      );
     } else {
       containerClass += " eventItem-image_notSupplied";
     }
